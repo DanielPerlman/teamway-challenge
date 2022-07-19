@@ -1,0 +1,205 @@
+import { Quiz } from "./types";
+
+export const baseQuiz: Quiz = {
+    "questions": [
+        {
+        "title": "You’re really busy at work and a colleague is telling you their life story and personal woes. You:",
+        "answers": [
+            {
+            "label": "Don’t dare to interrupt them",
+            "selected": false,
+                "score": {
+                    "text": "A",
+                    "value": 1
+                }
+            },
+            {
+            "label": "Think it’s more important to give them some of your time; work can wait",
+            "selected": false,
+                "score": {
+                    "text": "B",
+                    "value": 2
+                }
+            },
+            {
+            "label": "Listen, but with only with half an ear",
+            "selected": false,
+                "score": {
+                    "text": "C",
+                    "value": 3
+                }
+            },
+            {
+            "label": "Interrupt and explain that you are really busy at the moment",
+            "selected": false,
+                "score": {
+                    "text": "D",
+                    "value": 4
+                }
+            }
+        ]
+        },
+        {
+        "title": "You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:",
+        "answers": [
+            {
+            "label": "Look at your watch every two minutes",
+            "selected": false,
+                "score": {
+                    "text": "A",
+                    "value": 1
+                }
+            },
+            {
+            "label": "Bubble with inner anger, but keep quiet",
+            "selected": false,
+                "score": {
+                    "text": "B",
+                    "value": 2
+                }
+            },
+            {
+            "label": "Explain to other equally impatient people in the room that the doctor is always running late",
+            "selected": false,
+                "score": {
+                    "text": "C",
+                    "value": 3
+                }
+            },
+            {
+            "label": "Complain in a loud voice, while tapping your foot impatiently",
+            "selected": false,
+                "score": {
+                    "text": "D",
+                    "value": 4
+                }
+            }
+        ]
+        },
+        {
+        "title": "You’re having an animated discussion with a colleague regarding a project that you’re in charge of. You:",
+        "answers": [
+            {
+            "label": "Don’t dare contradict them",
+            "selected": false,
+                "score": {
+                    "text": "A",
+                    "value": 1
+                }
+            },
+            {
+            "label": "Think that they are obviously right",
+            "selected": false,
+            "score": {
+                "text": "B",
+                "value": 2
+            }
+            },
+            {
+            "label": "Defend your own point of view, tooth and nail",
+            "selected": false,
+                "score": {
+                    "text": "C",
+                    "value": 3
+                }
+            },
+            {
+            "label": "Continuously interrupt your colleague",
+            "selected": false,
+                "score": {
+                    "text": "D",
+                    "value": 4
+                }
+            }
+        ]
+        },
+        {
+        "title": "You are taking part in a guided tour of a museum. You:",
+        "answers": [
+            {
+            "label": "Are a bit too far towards the back so don’t really hear what the guide is saying",
+            "selected": false,
+                "score": {
+                    "text": "A",
+                    "value": 1
+                }
+            },
+            {
+            "label": "Follow the group without question",
+            "selected": false,
+                "score": {
+                    "text": "B",
+                    "value": 2
+                }
+            },
+            {
+            "label": "Make sure that everyone is able to hear properly",
+            "selected": false,
+                "score": {
+                    "text": "C",
+                    "value": 3
+                }
+            },
+            {
+            "label": "Are right up the front, adding your own comments in a loud voice",
+            "selected": false,
+                "score": {
+                    "text": "D",
+                    "value": 4
+                }
+            }
+        ]
+        },
+        {
+        "title": "During dinner parties at your home, you have a hard time with people who:",
+        "answers": [
+            {
+            "label": "Ask you to tell a story in front of everyone else",
+            "selected": false,
+                "score": {
+                    "text": "A",
+                    "value": 1
+                }
+            },
+            {
+            "label": "Talk privately between themselves",
+            "selected": false,
+                "score": {
+                    "text": "B",
+                    "value": 2
+                }
+            },
+            {
+            "label": "Hang around you all evening",
+            "selected": false,
+                "score": {
+                    "text": "C",
+                    "value": 3
+                }
+            },
+            {
+            "label": "Always drag the conversation back to themselves",
+            "selected": false,
+                "score": {
+                    "text": "D",
+                    "value": 4
+                }
+            }
+        ]
+        }
+    ],
+    score: 0,
+}
+
+export const getIntrovertQuiz = (): Quiz  => {
+    return { ...baseQuiz, score: 1};
+}
+
+export const getExtrovertQuiz = (): Quiz => {
+    let { questions } = baseQuiz;
+    questions = questions.map((question) => {
+        question.answers[2].selected = true;
+        return question;
+    })
+    return { score: 0, questions };
+}

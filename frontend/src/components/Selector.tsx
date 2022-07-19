@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Answer } from '../common';
+import { Answer } from '../common/types';
 
 interface SelectorProps {
     onSelect: (index: number) => void;
@@ -27,7 +27,7 @@ const Selector: React.FC<SelectorProps> = ({onSelect, options}) => {
     return (
         <div className={`options`}>
             {options.map(({ label, score: { text, value } }, index) => (
-                <div key={index} className={`option ${selected == index ? `selected` : false}`} onClick={() => handleSelect(index)}> 
+                <div key={index} data-testid={`answer-${index}`} className={`option ${selected == index ? `selected` : false}`} onClick={() => handleSelect(index)}> 
                     <div className='content'>
                         <div className='text'>{label}</div>
                         <div className='indicator'>{text}</div>

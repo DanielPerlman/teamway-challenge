@@ -1,9 +1,9 @@
-import { Quiz } from "./common";
+import { Quiz } from "./types";
 
 const apiUrl = 'http://localhost:3001/api'
 
 export const getQuiz = async () => {
-    let response = await fetch(`${apiUrl}/quiz/first`);
+    let response = await fetch(`${apiUrl}/quiz`);
     let data = await response.json();
 
     return data;

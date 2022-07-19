@@ -12,7 +12,7 @@ export enum QuizScreen {
 }
 
 export interface AnswerScore {
-    text: AnswerLabel,
+    text: string,
     value: number
 }
 

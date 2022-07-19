@@ -3,10 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button';
 import QuizTest from './sections/QuizTest';
-import { Answer, AnswerScore, Quiz, QuizScreen } from './common';
+import { Answer, AnswerScore, Quiz, QuizScreen } from './common/types';
 import QuizLanding from './sections/QuizLanding';
 import QuizResults from './sections/QuizResults';
-import { getQuiz, updateQuiz } from './api';
+import { getQuiz, updateQuiz } from './common/api';
 
 
 function App() {

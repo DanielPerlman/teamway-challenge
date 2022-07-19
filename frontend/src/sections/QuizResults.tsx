@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Quiz, QuizScreen } from '../common';
+import { Quiz, QuizScreen } from '../common/types';
 import Button from '../components/Button';
 
 interface QuizResultsProps {

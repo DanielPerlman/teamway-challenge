@@ -1,5 +1,5 @@
 import React from 'react';
-import { QuizScreen } from '../common';
+import { QuizScreen } from '../common/types';
 import Button from '../components/Button';
 
 interface QuizLandingProps {
