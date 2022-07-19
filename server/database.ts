@@ -6,7 +6,7 @@ const log: debug.IDebugger = debug('app:in-memory-dao');
 const questions: Array<Question> = db.questions as Array<Question>;
 
 class Database {
-    questions: Array<Question> = db.questions;
+    questions: Array<Question> = questions;
 
     constructor() {
         log('Created new instance of Database');
@@ -16,7 +16,7 @@ class Database {
         return this.questions.findIndex(q => q.id === id);
     }
 
-    addQuestion(question: Question) {
+    createQuestion(question: Question) {
         question.id = this.questions.length;
         this.questions.push(question);
         return question;
