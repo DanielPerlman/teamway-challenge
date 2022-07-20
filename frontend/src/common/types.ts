@@ -28,6 +28,5 @@ export interface Question {
 }
 
 export interface Quiz {
-    score: number,
     questions: Question[],
 }

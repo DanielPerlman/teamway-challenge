@@ -187,12 +187,11 @@ export const baseQuiz: Quiz = {
             }
         ]
         }
-    ],
-    score: 0,
+    ]
 }
 
 export const getIntrovertQuiz = (): Quiz  => {
-    return { ...baseQuiz, score: 1};
+    return { ...baseQuiz };
 }
 
 export const getExtrovertQuiz = (): Quiz => {
@@ -201,5 +200,5 @@ export const getExtrovertQuiz = (): Quiz => {
         question.answers[2].selected = true;
         return question;
     })
-    return { score: 0, questions };
+    return { questions };
 }

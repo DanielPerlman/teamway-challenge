@@ -1,4 +1,4 @@
-import { Quiz } from "./types";
+import { Question, Quiz } from "./types";
 
 const apiUrl = 'http://localhost:3001/api'
 
@@ -9,14 +9,14 @@ export const getQuiz = async () => {
     return data;
 }
 
-export const updateQuiz = async (quiz: Quiz) => {
-    let response = await fetch(`${apiUrl}/quiz`, {
+export const updateQuestion = async (question: Question) => {
+    let response = await fetch(`${apiUrl}/quiz/question`, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(quiz),
+        body: JSON.stringify(question),
     });
     let data = await response.json();
 

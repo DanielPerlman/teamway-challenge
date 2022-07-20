@@ -9,7 +9,7 @@ interface QuizProps {
     handleQuizSelect: (questionIndex: number, answerIndex: number) => void;
 }
 
-const QuizTest: React.FC<QuizProps> = ({ handleQuizSelect, nextScreen, quiz: {questions, score}}) => {
+const QuizTest: React.FC<QuizProps> = ({ handleQuizSelect, nextScreen, quiz: {questions}}) => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
 
     const isLastQuestion = currentQuestionIndex === questions.length - 1;

@@ -3,13 +3,13 @@ import { AnswerScore, Question } from './common';
 import db from './db.json';
 
 const log: debug.IDebugger = debug('app:in-memory-dao');
-const questions: Array<Question> = db.questions as Array<Question>;
+const templateQuestions: Array<Question> = db.questions as Array<Question>;
 
 class Database {
-    questions: Array<Question> = questions;
+    questions: Array<Question> = [];
 
     constructor() {
-        log('Created new instance of Database');
+        templateQuestions.map(question => this.createQuestion(question));
     }
 
     getQuestionIndex(id: number): number {
@@ -30,13 +30,13 @@ class Database {
         return this.questions;
     }
 
-    updateQuestion(question: Question) {
+    updateQuestion(question: Question): Array<Question> {
         const index = this.getQuestionIndex(question.id);
         this.questions[index] = question;
-        return question;
+        return this.questions;
     }
 
-    deleteQuestion(id: number) {
+    deleteQuestion(id: number): Array<Question> {
         const index = this.getQuestionIndex(id);
         this.questions.splice(index, 1);
         return this.questions;

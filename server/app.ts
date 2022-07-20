@@ -20,8 +20,9 @@ app.get('/api/quiz', (req, res) => {
 });
 
 app.put('/api/quiz/question', (req, res) => {
-    let quiz = database.updateQuestion(req.body);
-    res.json(quiz);
+    let questions = database.updateQuestion(req.body);
+    
+    res.json({questions});
 });
 
 // this is a simple route to make sure everything is working properly

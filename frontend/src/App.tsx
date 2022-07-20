@@ -4,7 +4,7 @@ import QuizTest from './sections/QuizTest';
 import { Answer, Quiz, QuizScreen } from './common/types';
 import QuizLanding from './sections/QuizLanding';
 import QuizResults from './sections/QuizResults';
-import { getQuiz, updateQuiz } from './common/api';
+import { getQuiz, updateQuestion } from './common/api';
 
 
 function App() {
@@ -27,13 +27,12 @@ function App() {
     question.answers.map((answer: Answer) => {
       return answer.selected = false;
     });
-    questions[questionIndex].answers[answerIndex].selected = true;
+    question.answers[answerIndex].selected = true;
 
     // Update quiz on backend, sync currentQuizState
-    let newQuizState = { ...currentQuizState as Quiz, questions }
-    newQuizState = await updateQuiz(newQuizState);
+    let newQuestions = await updateQuestion(question);
 
-    setCurrentQuizState(newQuizState);
+    setCurrentQuizState(newQuestions);
   }
 
   // fetch quiz data on mount from server
