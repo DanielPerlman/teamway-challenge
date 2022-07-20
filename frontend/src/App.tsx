@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Button from './components/Button';
 import QuizTest from './sections/QuizTest';
-import { Answer, AnswerScore, Quiz, QuizScreen } from './common/types';
+import { Answer, Quiz, QuizScreen } from './common/types';
 import QuizLanding from './sections/QuizLanding';
 import QuizResults from './sections/QuizResults';
 import { getQuiz, updateQuiz } from './common/api';
@@ -13,25 +11,32 @@ function App() {
   const [currentQuizState, setCurrentQuizState] = React.useState<Quiz | boolean>(false);
   const [currentScreen, setCurrentScreen] = React.useState(QuizScreen.LANDING);
   
+  // Move to next section
   const handleNextScreen = (tag: QuizScreen) => {
     setCurrentScreen(tag);
   }
 
+  // Select target answer, update quiz
   const handleQuizSelect = async (questionIndex: number, answerIndex: number) => {
     if (!currentQuizState) return false;
 
     let { questions } = currentQuizState as Quiz;
     let question = questions[questionIndex];
+
+    // Clear selected answers, update target answer to be selected
     question.answers.map((answer: Answer) => {
       return answer.selected = false;
     });
     questions[questionIndex].answers[answerIndex].selected = true;
+
+    // Update quiz on backend, sync currentQuizState
     let newQuizState = { ...currentQuizState as Quiz, questions }
     newQuizState = await updateQuiz(newQuizState);
 
     setCurrentQuizState(newQuizState);
   }
 
+  // fetch quiz data on mount from server
   useEffect(() => {
     getQuiz().then((quiz: Quiz) => {
       setCurrentQuizState(quiz);
