@@ -1,4 +1,4 @@
-import { Question, Quiz } from "./types";
+import { Question } from "./types";
 
 const apiUrl = 'http://localhost:3001/api'
 
