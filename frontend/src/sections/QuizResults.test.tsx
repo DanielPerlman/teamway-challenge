@@ -1,8 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import QuizResults from './QuizResults';
-import { getQuiz } from '../common/api';
-import { Quiz } from '../common/types';
 import { getExtrovertQuiz, getIntrovertQuiz } from '../common/mock';
 
 

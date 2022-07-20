@@ -1,7 +1,6 @@
 import React from 'react';
 import { act, render, screen } from '@testing-library/react';
 import QuizTest from './QuizTest';
-import { getQuiz } from '../common/api';
 import { baseQuiz } from '../common/mock';
 
 test('shows default question and answer', async () => {

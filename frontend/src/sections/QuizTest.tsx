@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Question, Quiz, QuizScreen } from '../common/types';
+import { Quiz, QuizScreen } from '../common/types';
 import Button from '../components/Button';
 import Selector from '../components/Selector';
 
